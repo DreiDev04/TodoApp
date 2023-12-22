@@ -19,7 +19,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    'node_modules/flowbite-react/lib/esm/**/*.js',
+    "node_modules/flowbite-react/lib/esm/**/*.js",
     "./node_modules/tw-elements/dist/js/**/*.js",
     "./node_modules/tw-elements-react/dist/js/**/*.js",
     "./node_modules/flowbite/**/*.js",
@@ -43,7 +43,7 @@ export default {
           1: secondary,
           2: secondary_2,
         },
-        tertiary:{
+        tertiary: {
           1: tertiary,
         },
         dark: {
@@ -65,9 +65,8 @@ export default {
     },
   },
   plugins: [
-    require("flowbite/plugin"), 
-    require("tw-elements/dist/plugin.cjs"),
-    require("tw-elements-react/dist/plugin.cjs"),
+    require("flowbite/plugin"),
+    require("tailwindcss-react-aria-components"),
   ],
-  darkMode: "class"
+  darkMode: "class",
 };

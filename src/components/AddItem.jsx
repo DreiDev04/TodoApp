@@ -1,10 +1,15 @@
 import TaskInput from "../components/flowbite/TaskInput";
 import DayPick from "../components/flowbite/DayPick";
+import DayPicker from "./reactAria/DayPicker";
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import TaskTextArea from "./flowbite/TaskTextArea";
 import AddItemSelect from "./flowbite/AddItemSelect";
+import TimeSelector from "./reactAria/TimeSelector";
+
+
 
 function AddItem() {
   return (
@@ -24,14 +29,19 @@ function AddItem() {
           <AddItemSelect />
         </div>
         <div className="container ">
-          <DayPick />
+          <DayPicker />
+          {/* <DayPick /> */}
+        </div>
+
+        <div>
+          <TimeSelector />
         </div>
       </div>
       <div className="flex justify-evenly">
-        <button className="bg-dark-2 rounded-lg px-10 py-2.5 border border-light-3 text-light-1 text-sm">
+        <button className="bg-dark-2 rounded-lg px-10 py-2.5 border border-light-3 text-light-1 text-xs">
           Cancel
         </button>
-        <button className="bg-tertiary-1 rounded-lg px-10 py-2.5 border border-light-3 text-light-2 text-sm">
+        <button className="bg-tertiary-1 rounded-lg px-10 py-2.5 border border-light-3 text-light-1 text-xs">
           Add Task
         </button>
       </div>
