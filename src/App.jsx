@@ -16,8 +16,8 @@ function App() {
         <Navigation />
       </div>
       <div className="w-full m-4">
-        <TodayEvent todayTextSize={"4xl"} todayNum={true} title={"Today"}/>
-        <UpcomingEvent/>
+        {/* <TodayEvent todayTextSize={"4xl"} todayNum={true} title={"Today"}/> */}
+        {/* <UpcomingEvent/> */}
         <StickyNotesEvent/>
       </div>
       {isAddItem ? (
