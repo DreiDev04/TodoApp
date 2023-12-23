@@ -10,7 +10,7 @@ function StickyNotesEvent() {
           0
         </span>
       </h1>
-      <div className="bg-dark-3 rounded-lg h-full grid grid-cols-3 gap-5 p-5  ">
+      <div className="border border-light-3 rounded-lg h-full grid grid-cols-3 gap-5 p-5  ">
         <StickyNotesComponents
           title={"HAHA"}
           desc={
