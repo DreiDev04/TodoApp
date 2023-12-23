@@ -32,7 +32,7 @@ function DayPicker() {
             <FontAwesomeIcon className="p-1" icon={faCalendarDays} />
           </Button>
         </Group>
-        <Popover>
+        <Popover placement="left">
           <Dialog className="flex bg-dark-3 rounded-lg p-3 align-middle justify-center ">
             {/* <Calendar className=" items-center gap-1 pb-2 px-1 font-serif w-full text-light-1">
               <header className="flex font-semibold text-sm gap-5 justify-center ">
