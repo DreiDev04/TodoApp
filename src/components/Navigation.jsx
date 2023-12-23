@@ -8,7 +8,8 @@ import {
   faNoteSticky,
   faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import MainContext from "./context/MainContext";
 
 const NavContent = ({ onClose }) => (
   <div className="container flex flex-col justify-between h-full">
@@ -47,9 +48,10 @@ const NavContent = ({ onClose }) => (
 
 function Navigation() {
   const [show, setShow] = useState(true);
-
+  const { setIsNavigation } = useContext(MainContext);
   const toggleNav = () => {
     setShow(!show);
+    setIsNavigation(!show);
     console.log("nav is " + show);
   };
 

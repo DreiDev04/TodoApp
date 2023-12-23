@@ -3,10 +3,10 @@ import { Checkbox } from "flowbite-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
-import AddItemContext from "./context/AddItemContext";
+import MainContext from "./context/MainContext";
 
 function IndividualTask({ name }) {
-  const { setIsAddItem } = useContext(AddItemContext);
+  const { setIsAddItem } = useContext(MainContext);
   function OpenAddItem() {
     setIsAddItem(true);
     console.log("clicked");

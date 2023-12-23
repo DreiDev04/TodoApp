@@ -9,10 +9,10 @@ import AddItemSelect from "./flowbite/AddItemSelect";
 import TimeSelector from "./reactAria/TimeSelector";
 
 import { useContext } from "react";
-import AddItemContext from "./context/AddItemContext";
+import MainContext from "./context/MainContext";
 
 function AddItem() {
-  const { setIsAddItem } = useContext(AddItemContext);
+  const { setIsAddItem } = useContext(MainContext);
 
   function CloseAddItem() {
     setIsAddItem(false);

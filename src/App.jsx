@@ -4,18 +4,18 @@ import UpcomingEvent from "./components/UpcomingEvent";
 import StickyNotesEvent from "./components/StickyNotesEvent";
 import AddItem from "./components/AddItem";
 
-import AddItemContext from "./components/context/AddItemContext";
+import AddItemContext from "./components/context/MainContext";
 import React, { useContext } from "react";
 
 function App() {
-  const { isAddItem,  } = useContext(AddItemContext);
+  const { isAddItem,isNavigation  } = useContext(AddItemContext);
 
   return (
     <div className="flex">
-      <div className="w-3/12">
+      <div className={`w-${isNavigation ? "64":"2/12"}`}>
         <Navigation />
       </div>
-      <div className="w-full m-4">
+      <div className="w-screen m-4">
         <TodayEvent todayTextSize={"4xl"} todayNum={true} title={"Today"}/>
         <UpcomingEvent/>
         <StickyNotesEvent/>
