@@ -1,5 +1,7 @@
 import Navigation from "./components/Navigation";
-import Board from "./components/Board";
+import TodayEvent from "./components/TodayEvent";
+import UpcomingEvent from "./components/UpcomingEvent";
+import StickyNotesEvent from "./components/StickyNotesEvent";
 import AddItem from "./components/AddItem";
 
 import AddItemContext from "./components/context/AddItemContext";
@@ -10,14 +12,16 @@ function App() {
 
   return (
     <div className="flex">
-      <div className="w-4/12 m-4">
+      <div className="w-3/12">
         <Navigation />
       </div>
       <div className="w-full m-4">
-        <Board />
+        <TodayEvent todayTextSize={"4xl"} todayNum={true} title={"Today"}/>
+        <UpcomingEvent/>
+        <StickyNotesEvent/>
       </div>
       {isAddItem ? (
-        <div className="w-5/12 m-4">
+        <div className="w-5/12">
           <AddItem />
         </div>
       ) : (

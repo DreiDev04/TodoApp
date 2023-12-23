@@ -46,7 +46,7 @@ const NavContent = ({ onClose }) => (
 );
 
 function Navigation() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const toggleNav = () => {
     setShow(!show);
@@ -55,7 +55,7 @@ function Navigation() {
 
   return (
     <div
-      className={`container  rounded-lg p-4 bg-${
+      className={`sticky top-0 right-0 container  rounded-lg p-4 bg-${
         show ? "dark-2" : "dark-1"
       } h-screen text-light-1 font-OpenSans font-bold justify-between flex flex-col`}
     >

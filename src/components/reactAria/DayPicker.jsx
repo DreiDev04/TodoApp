@@ -22,8 +22,8 @@ import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 function DayPicker() {
   return (
     <div className="flex text-md mb-4">
-      <h1 className="mr-10 my-auto">Date:</h1>
-      <DatePicker className="">
+      <h1 className="my-auto">Date:</h1>
+      <DatePicker className="ml-auto">
         <Group className="flex p-2 rounded-lg border border-light-3">
           <DateInput className="flex">
             {(segment) => <DateSegment segment={segment} />}
