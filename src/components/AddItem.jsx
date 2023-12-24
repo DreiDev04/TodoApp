@@ -19,7 +19,7 @@ function AddItem() {
   }
 
   return (
-    <div className="sticky top-0 right-0 p-2">
+    <div className="sticky top-0 right-0 ">
       <div className="container p-5 text-light-1 font-OpenSans rounded-lg bg-dark-2 h-screen font-bold flex flex-col justify-between ">
         <div>
           <div className="flex justify-between mb-3">

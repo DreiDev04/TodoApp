@@ -5,9 +5,9 @@ const MainContext = createContext();
 export function MainProvider({ children }) {
   const [isAddItem, setIsAddItem] = useState(false);
   const [isNavigation, setIsNavigation] = useState(true);
-  
+
   return (
-    <MainContext.Provider value={{ isAddItem, setIsAddItem, isNavigation, setIsNavigation}}>
+    <MainContext.Provider value={{ isAddItem, setIsAddItem, isNavigation, setIsNavigation,}}>
       {children}
     </MainContext.Provider>
   );

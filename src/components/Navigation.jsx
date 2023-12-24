@@ -11,8 +11,9 @@ import {
 import { useState, useContext } from "react";
 import MainContext from "./context/MainContext";
 
+
 const NavContent = ({ onClose }) => (
-  <div className="container flex flex-col justify-between h-full">
+  <div className="container flex flex-col justify-between h-full ">
     <div>
       <div className="container flex items-center mb-6">
         <h1>Menu</h1>
@@ -60,12 +61,12 @@ function Navigation() {
       <div
         className={`  p-4 bg-${
           show ? "dark-2" : "dark-1"
-        } h-screen text-light-1 font-OpenSans font-bold justify-between flex flex-col sticky top-0 right-0 container p-2`}
+        } h-screen text-light-1 font-OpenSans font-bold justify-between flex flex-col sticky top-0 right-0 container p-2 `}
       >
         {show ? (
           <NavContent onClose={toggleNav} />
         ) : (
-          <div className="container flex ">
+          <div className="container flex  ">
             <button
               type="button"
               className="justify-center align-middle w-full"
