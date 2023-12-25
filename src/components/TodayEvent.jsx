@@ -1,7 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import IndividualTask from "./IndividualTask";
+import { db } from "../firebase";
+import { collection, query, onSnapshot } from "firebase/firestore";
+
 
 function TodayEvent({ todayTextSize, todayNum, title}) {
+  const [todos, setTodos] = useState([]);
+  useEffect(() => {
+
+    const q = query(collection(db, "todo"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const tasksArr = [];
+      querySnapshot.forEach((doc) => {
+        tasksArr.push({...doc.data(), id: doc.id});
+      });
+      // console.log(tasksArr);
+      setTodos(tasksArr);
+    });
+    return () => {
+      unsubscribe();
+    };
+  },[]);
+
   return (
     <div className="container p-4 text-light-1 font-OpenSans">
       <h1 className={`font-bold text-${todayTextSize} mb-4`}>
@@ -14,9 +34,9 @@ function TodayEvent({ todayTextSize, todayNum, title}) {
       <button className="flex p-3 w-full border border-light-3 rounded-lg hover:bg-tertiary-1">
         + Add New Task
       </button>
-      <IndividualTask name="Mag reminiscereminisce kung babalik pa siya" />
-      <IndividualTask name="Maging delulu overnight 24/7 every year" />
-      <IndividualTask name="Happy New Year, btw kumain kana?" />
+      <IndividualTask todos={todos} />
+      {/* <IndividualTask todos={todos} /> */}
+
     </div>
   );
 }
