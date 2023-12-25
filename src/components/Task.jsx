@@ -1,9 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Tasks({ name, icon }) {
+function Tasks({ name, icon, onClick  }) {
   return (
-    <div className=" flex text-sm py-1 hover:bg-dark-4 rounded-md">
+    <div className=" flex text-sm py-1 hover:bg-dark-4 rounded-md hover:cursor-pointer" onClick={onClick}>
       <div className=" flex items-center w-max">
         <FontAwesomeIcon className="px-2" icon={icon} />
         <p>{name}</p>

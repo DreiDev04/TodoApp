@@ -17,15 +17,15 @@ function UpcomingEvent() {
         <div className=" rounded-lg border border-light-3">
           <TodayEvent todayTextSize={"xl"} todayNum={false} title={"Today"} />
         </div>
-        <div className="flex w-full justify-between gap-3">
-          <div className="rounded-lg border border-light-3 ">
+        <div className="flex w-full justify-between gap-4">
+          <div className="rounded-lg border border-light-3 w-full">
             <TodayEvent
               todayTextSize={"xl"}
               todayNum={false}
               title={"Tommorow"}
             />
           </div>
-          <div className="rounded-lg border border-light-3">
+          <div className="rounded-lg border border-light-3 w-full">
             <TodayEvent
               todayTextSize={"xl"}
               todayNum={false}
