@@ -1,5 +1,5 @@
 import TaskInput from "../components/flowbite/TaskInput";
-import DayPick from "../components/flowbite/DayPick";
+
 import DayPicker from "./reactAria/DayPicker";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,19 +7,28 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import TaskTextArea from "./flowbite/TaskTextArea";
 import AddItemSelect from "./flowbite/AddItemSelect";
 import TimeSelector from "./reactAria/TimeSelector";
-
+import TaskCollectionContext from "./context/TaskCollectionContext";
 import { useContext } from "react";
 import MainContext from "./context/MainContext";
 
 function AddItem() {
   const { setIsAddItem } = useContext(MainContext);
-
+  const { taskText, taskDescription, taskCategory, taskDate, taskTime } = useContext(
+    TaskCollectionContext
+  );
   function CloseAddItem() {
     setIsAddItem(false);
   }
 
+  function UploadTask() {
+    console.log("text is: " + taskText);
+    console.log("desc is: " + taskDescription);
+    console.log("categ is: " + taskCategory);
+    console.log("date is: " + taskDate);
+    console.log("time is: " + taskTime);
+  }
   return (
-    <div className="sticky top-0 right-0 ">
+    <>
       <div className="container p-5 text-light-1 font-OpenSans rounded-lg bg-dark-2 h-screen font-bold flex flex-col justify-between ">
         <div>
           <div className="flex justify-between mb-3">
@@ -54,12 +63,15 @@ function AddItem() {
           >
             Cancel
           </button>
-          <button className="bg-tertiary-1 rounded-lg px-10 py-2.5 border border-light-3 text-light-1 text-xs">
+          <button
+            onClick={UploadTask}
+            className="bg-tertiary-1 rounded-lg px-10 py-2.5 border border-light-3 text-light-1 text-xs"
+          >
             Add Task
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

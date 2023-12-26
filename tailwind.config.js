@@ -66,7 +66,7 @@ export default {
   },
   plugins: [
     require("flowbite/plugin"),
-    require("tailwindcss-react-aria-components"),
+    require('tailwindcss-react-aria-components'),
   ],
   darkMode: "class",
 };
