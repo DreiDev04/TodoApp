@@ -13,21 +13,32 @@ import TaskCollectionContext from "./context/TaskCollectionContext";
 import { useContext } from "react";
 import MainContext from "./context/MainContext";
 
+import { collection, addDoc, } from "firebase/firestore";
+import { db } from "../firebase";
+
+
 function AddItem() {
   const { setIsAddItem } = useContext(MainContext);
-  const { taskText, taskDescription, taskCategory, taskDate, taskTime } = useContext(
-    TaskCollectionContext
-  );
+  const { taskText, taskDescription, taskCategory, taskDateAndTime } =
+    useContext(TaskCollectionContext);
   function CloseAddItem() {
     setIsAddItem(false);
   }
 
-  function UploadTask() {
-    console.log("text is: " + taskText);
-    console.log("desc is: " + taskDescription);
-    console.log("categ is: " + taskCategory);
-    console.log("date is: " + taskDate);
-    console.log("time is: " + taskTime);
+  const createTodo = async (e) => {
+    e.preventDefault();
+    if (!taskText) {
+      alert("Please enter a task");
+      return;
+    }
+    await addDoc(collection(db, "todo"), {
+      text: taskText,
+      completed: false,
+      description: taskDescription,
+      category: taskCategory,
+      dateAndTime: taskDateAndTime,
+    });
+    CloseAddItem();
   }
   return (
     <>
@@ -52,12 +63,7 @@ function AddItem() {
           </div>
           <div className="flex justify-between">
             <h1 className="my-auto text-lg font-semibold">Due: </h1>
-          <DatetimePicker />
-            {/* <DayPicker /> */}
-          </div>
-
-          <div>
-            {/* <TimeSelector /> */}
+            <DatetimePicker />
           </div>
         </div>
         <div className="flex justify-evenly">
@@ -68,7 +74,7 @@ function AddItem() {
             Cancel
           </button>
           <button
-            onClick={UploadTask}
+            onClick={ createTodo}
             className="bg-tertiary-1 rounded-lg px-10 py-2.5 border border-light-3 text-light-1 text-xs"
           >
             Add Task

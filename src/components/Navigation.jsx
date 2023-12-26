@@ -12,8 +12,10 @@ import { useState, useContext } from "react";
 import MainContext from "./context/MainContext";
 import TaskContext from "./context/TaskContext";
 
+
+
 const NavTasks = () => {
-  const { setTask } = useContext(TaskContext);
+  const { setTask, todos } = useContext(TaskContext);
 
   const handleTask = (taskName) => {
     setTask(taskName);
@@ -28,6 +30,7 @@ const NavTasks = () => {
         onClick={() => {
           handleTask("today");
         }}
+        taskLength={todos.length}
       />
       <Tasks
         name="Upcoming"
@@ -35,6 +38,7 @@ const NavTasks = () => {
         onClick={() => {
           handleTask("upcoming");
         }}
+        taskLength={0}
       />
       <Tasks
         name="Calendar"
@@ -42,6 +46,7 @@ const NavTasks = () => {
         onClick={() => {
           handleTask("calendar");
         }}
+        taskLength={0}
       />
       <Tasks
         name="Sticky Notes"
@@ -49,6 +54,7 @@ const NavTasks = () => {
         onClick={() => {
           handleTask("sticky");
         }}
+        taskLength={0}
       />
     </div>
   );
