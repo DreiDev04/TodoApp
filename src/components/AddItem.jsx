@@ -2,6 +2,8 @@ import TaskInput from "../components/flowbite/TaskInput";
 
 import DayPicker from "./reactAria/DayPicker";
 
+import DatetimePicker from "./ownedComponents/DatetimePicker";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import TaskTextArea from "./flowbite/TaskTextArea";
@@ -48,12 +50,14 @@ function AddItem() {
           <div className="container ">
             <AddItemSelect />
           </div>
-          <div className="container ">
-            <DayPicker />
+          <div className="flex justify-between">
+            <h1 className="my-auto text-lg font-semibold">Due: </h1>
+          <DatetimePicker />
+            {/* <DayPicker /> */}
           </div>
 
           <div>
-            <TimeSelector />
+            {/* <TimeSelector /> */}
           </div>
         </div>
         <div className="flex justify-evenly">

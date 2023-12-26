@@ -1,0 +1,261 @@
+/*!
+ * https://github.com/arqex/react-datetime
+ */
+
+:root{
+  --bg-calendar: #232323;
+  --bg-date-hover: #0891B2 ;
+  --bg-current-date: #0891B2;
+  --bg-current-date-triangles: #FAFAFA;
+  --bg-line: #373737;
+  --bg-top-date-hover: #0891B2;
+  --bg-month-year-hover: #0891B2;
+  --bg-time-arrow-hover: #0891B2;
+  --txt-disabled: #404E4D;
+  --txt-disabled-past: #2A2A2A;
+  --txt-current-date: #FAFAFA;
+  --txt-light: #FAFAFA;
+}
+
+
+.rdt {
+
+  position: relative;
+}
+.rdtPicker {
+
+  display: none;
+  position: absolute;
+  right: 20%;
+  border: 1px solid var(--bg-line);
+  min-width: 250px;
+  padding: 4px;
+  margin-top: 1px;
+  z-index: 99999 !important;
+  background: var(--bg-calendar);
+  /* box-shadow: 0 1px 3px rgba(0,0,0,.1); */
+  border-radius: 5%;
+}
+.rdtOpen .rdtPicker {
+  
+  display: block;
+}
+.rdtStatic .rdtPicker {
+  
+  box-shadow: none;
+  position: static;
+}
+
+.rdtPicker .rdtTimeToggle {
+  text-align: center;
+}
+
+.rdtPicker table {
+  width: 100%;
+  margin: 0;
+  
+}
+.rdtPicker td,
+.rdtPicker th {
+  text-align: center;
+  height: 28px;
+}
+.rdtPicker td {
+  cursor: pointer;
+  color: var(--txt-light);
+}
+.rdtPicker td.rdtDay{
+  border-radius: 25%;
+  
+}
+
+.rdtPicker td.rdtDay:hover,
+.rdtPicker td.rdtHour:hover,
+.rdtPicker td.rdtMinute:hover,
+.rdtPicker td.rdtSecond:hover,
+.rdtPicker .rdtTimeToggle:hover {
+  background: var(--bg-date-hover);
+  cursor: pointer;
+}
+.rdtPicker td.rdtOld,
+.rdtPicker td.rdtNew {
+  color: var(--txt-disabled);
+  
+}
+.rdtPicker td.rdtToday {
+  position: relative;
+}
+.rdtPicker td.rdtToday:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-bottom: 7px solid var(--bg-current-date);
+  
+  /* border-top-color: rgba(0, 0, 0, 0.2); */
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+.rdtPicker td.rdtActive,
+.rdtPicker td.rdtActive:hover {
+  background-color: var(--bg-current-date);
+  color: var(--txt-current-date);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  
+}
+.rdtPicker td.rdtActive.rdtToday:before {
+  border-bottom-color: var(--bg-current-date-triangles);
+}
+.rdtPicker td.rdtDisabled,
+.rdtPicker td.rdtDisabled:hover {
+  background: none;
+  color: var(--txt-disabled-past);
+  cursor: not-allowed;
+  
+}
+
+.rdtPicker td span.rdtOld {
+  color: #4b0aff;
+}
+.rdtPicker td span.rdtDisabled,
+.rdtPicker td span.rdtDisabled:hover {
+  background: none;
+  color: #1900ff;
+  cursor: not-allowed;
+}
+.rdtPicker th {
+  border-bottom: 1px solid var(--bg-line);
+  /* outline: solid red 1px; */
+  color: var(--txt-light);
+}
+.rdtPicker .dow {
+  width: 14.2857%;
+  border-bottom: none;
+  cursor: default;
+}
+.rdtPicker th.rdtSwitch {
+  width: 100px;
+  
+}
+.rdtPicker th.rdtNext,
+.rdtPicker th.rdtPrev {
+  font-size: 21px;
+  vertical-align: top;
+  
+}
+
+.rdtPrev span,
+.rdtNext span {
+  display: block;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.rdtPicker th.rdtDisabled,
+.rdtPicker th.rdtDisabled:hover {
+  background: none;
+  color: #0011ff;
+  cursor: not-allowed;
+}
+.rdtPicker thead tr:first-of-type th {
+  border-radius: 20%;
+  
+  cursor: pointer;
+}
+
+.rdtPicker thead tr:first-of-type th:hover {
+  background: var(--bg-top-date-hover);
+}
+
+.rdtPicker tfoot {
+  border-top: 1px solid var(--bg-line);
+}
+
+.rdtPicker button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.rdtPicker button:hover {
+  background-color: #ff0000;
+}
+
+.rdtPicker thead button {
+  width: 100%;
+  height: 100%;
+}
+
+td.rdtMonth,
+td.rdtYear {
+  border-radius: 15%;
+  height: 50px;
+  width: 25%;
+  cursor: pointer;
+}
+td.rdtMonth:hover,
+td.rdtYear:hover {
+  background: var(--bg-month-year-hover);
+}
+
+.rdtCounters {
+  display: inline-block;
+}
+
+.rdtCounters > div {
+  float: left;
+}
+
+.rdtCounter {
+  height: 100px;
+}
+
+.rdtCounter {
+  width: 40px;
+}
+
+.rdtCounterSeparator {
+  line-height: 100px;
+}
+
+.rdtCounter .rdtBtn {
+  height: 30%; 
+  border-radius: 20%;
+  /* outline: solid red 1px; */
+  margin-top: 10px;
+  line-height: 30px;
+  cursor: pointer;
+  display: block;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;
+}
+.rdtCounter .rdtBtn:hover {
+  background: var(--bg-time-arrow-hover);
+}
+.rdtCounter .rdtCount {
+  height: 20%;
+  font-size: 1.2em;
+}
+
+.rdtMilli {
+  vertical-align: middle;
+  padding-left: 8px;
+  width: 48px;
+}
+
+.rdtMilli input {
+  width: 100%;
+  font-size: 1.2em;
+  margin-top: 37px;
+}
+
+.rdtTime td {
+  cursor: default;
+}
