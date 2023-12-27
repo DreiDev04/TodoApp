@@ -1,30 +1,11 @@
-import React, { useEffect, useState, useContext} from "react";
+import { useContext } from "react";
 import IndividualTask from "./IndividualTask";
-import { db } from "../firebase";
-import { collection, query, onSnapshot } from "firebase/firestore";
-import MainContext from "./context/MainContext";
-import TaskContext from "./context/TaskContext"
 
+import MainContext from "./context/MainContext";
+import TaskContext from "./context/TaskContext";
 
 function TodayEvent({ todayTextSize, todayNum, title }) {
-  
-  const {todos, setTodos} = useContext(TaskContext);
-  useEffect(() => {
-    const q = query(collection(db, "todo"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const tasksArr = [];
-      querySnapshot.forEach((doc) => {
-        tasksArr.push({ ...doc.data(), id: doc.id });
-      });
-      // console.log(tasksArr);
-      // setTodosLength(tasksArr);
-      setTodos(tasksArr);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
+  const { todos } = useContext(TaskContext);
   const { setIsAddItem } = useContext(MainContext);
 
   function OpenAddItem() {
@@ -39,7 +20,7 @@ function TodayEvent({ todayTextSize, todayNum, title }) {
           <span
             className={`px-3 py-1 m-3 border border-light-3 rounded-lg text-${todayTextSize}`}
           >
-            {todos.length }
+            {todos.length}
           </span>
         ) : (
           ""

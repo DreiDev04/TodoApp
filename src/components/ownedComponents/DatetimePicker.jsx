@@ -13,6 +13,7 @@ function DatetimePicker() {
 
   const handleChange = (e) => {
     setTaskDateAndTime(e._d);
+    console.log(e);
     console.log(e._d);
   }
   const currentDateString = moment().format("MM/DD/YYYY HH:mm A");

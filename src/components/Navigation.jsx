@@ -32,7 +32,7 @@ const NavTasks = () => {
         }}
         taskLength={todos.length}
       />
-      <Tasks
+      {/* <Tasks
         name="Upcoming"
         icon={faAnglesRight}
         onClick={() => {
@@ -55,7 +55,7 @@ const NavTasks = () => {
           handleTask("sticky");
         }}
         taskLength={0}
-      />
+      /> */}
     </div>
   );
 };

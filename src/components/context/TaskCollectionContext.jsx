@@ -7,7 +7,7 @@ export function TaskCollectionProvider({ children }) {
 
   const [taskText, setTaskText] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [taskCategory, setTaskCategory] = useState("");
+  const [taskCategory, setTaskCategory] = useState("Others");
   const [taskDateAndTime, setTaskDateAndTime] = useState("");
 
   return (

@@ -15,6 +15,13 @@ const light_3 = "#373737";
 const light_4 = "#404E4D";
 const neutral = "#0C0C20";
 
+const stickyNotesPalette = [
+  '#FFD700', '#FF6347', '#FF4500', '#FF69B4', '#00FF00',
+  '#00FFFF', '#9400D3', '#FF00FF', '#00FF7F', '#FF8C00',
+  '#FF1493', '#32CD32', '#1E90FF', '#FFA500', '#8A2BE2',
+  '#FF4500', '#228B22', '#FF00FF', '#00FA9A', '#DC143C'
+];
+
 export default {
   content: [
     "./index.html",
@@ -61,6 +68,7 @@ export default {
         neutral: {
           1: neutral,
         },
+        sticky: stickyNotesPalette
       },
     },
   },

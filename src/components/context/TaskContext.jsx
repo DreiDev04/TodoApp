@@ -1,4 +1,6 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
+import { db } from "../../firebase";
+import { collection, query, getDocs } from "firebase/firestore";
 
 const TaskContext = createContext();
 
@@ -6,8 +8,27 @@ export function TaskProvider({ children }) {
   const [task, setTask] = useState("today");
   const [todos, setTodos] = useState([]);
 
+  const fetchData = async () => {
+    console.log("data has been fetched");
+    const q = query(collection(db, "todo"));
+    const querySnapshot = await getDocs(q);
+
+    const tasksArr = [];
+    querySnapshot.forEach((doc) => {
+      tasksArr.push({ ...doc.data(), id: doc.id });
+    });
+
+    setTodos(tasksArr);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []); 
+
+  const contextValue = { task, setTask, todos, setTodos, fetchData };
+
   return (
-    <TaskContext.Provider value={{ task, setTask, todos, setTodos }}>
+    <TaskContext.Provider value={contextValue}>
       {children}
     </TaskContext.Provider>
   );
