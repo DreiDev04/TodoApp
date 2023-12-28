@@ -7,6 +7,7 @@ const TaskContext = createContext();
 export function TaskProvider({ children }) {
   const [task, setTask] = useState("today");
   const [todos, setTodos] = useState([]);
+  const [todoTask, setTodoTask] = useState([]);
 
   const fetchData = async () => {
     console.log("data has been fetched");
@@ -25,7 +26,7 @@ export function TaskProvider({ children }) {
     fetchData();
   }, []); 
 
-  const contextValue = { task, setTask, todos, setTodos, fetchData };
+  const contextValue = { task, setTask, todos, setTodos, fetchData, todoTask, setTodoTask};
 
   return (
     <TaskContext.Provider value={contextValue}>

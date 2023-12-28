@@ -4,7 +4,7 @@ import { faCalendarXmark } from "@fortawesome/free-solid-svg-icons";
 function TaskPreview({ todos }) {
   // const date =  todos.dateAndTime.toDate().toString();
   const date = todos.dateAndTime && todos.dateAndTime.toDate().toLocaleString();
-  console.log(date);
+  // console.log(date);
   return (
     <div className="text-xs ml-10 flex align-middle ">
       <ul className="flex gap-4 ">

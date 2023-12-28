@@ -6,10 +6,12 @@ import { db } from "../firebase";
 import TaskContext from "./context/TaskContext";
 import { useContext } from "react";
 import TaskPreview from "./TaskPreview";
+import MainContext from "./context/MainContext";
 
 function IndividualTask({ todos }) {
-  console.log(todos);
-  const { fetchData } = useContext(TaskContext);
+  // console.log(todos);
+  const { fetchData, setTodoTask } = useContext(TaskContext);
+  const { setIsEditItem } = useContext(MainContext);
 
   const toggleComplete = async (todos) => {
     await updateDoc(doc(db, "todo", todos.id), {
@@ -24,6 +26,11 @@ function IndividualTask({ todos }) {
     });
     fetchData();
   };
+
+  const handleEdit = () =>{
+    setIsEditItem(true);
+    setTodoTask(todos)
+  }
   return (
     <div
       className={`py-2 px-5 items-center border-b border-b-light-3 ${
@@ -56,6 +63,7 @@ function IndividualTask({ todos }) {
           <button
             className="ml-auto px-2 py-1 rounded-lg hover:bg-dark-4"
             type="button"
+            onClick={handleEdit}
           >
             <FontAwesomeIcon icon={faChevronRight} className="text-light-1" />
           </button>

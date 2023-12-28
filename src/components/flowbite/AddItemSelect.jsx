@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import TaskCollectionContext from "../context/TaskCollectionContext";
 
-function AddItemSelect() {
+function AddItemSelect({value}) {
   const {taskCategory, setTaskCategory } = useContext(
     TaskCollectionContext
   );
@@ -22,7 +22,8 @@ function AddItemSelect() {
         id="List"
         className="bg-dark-2 border border-light-3 text-light-2 text-sm rounded-lg focus:ring-light-3 focus:border-light-3 p-1.5 ml-auto"
         onChange={handleChange} 
-        value={taskCategory}
+        value={value}
+        // value={taskCategory}
       >
         <option  defaultValue="Others" >Others</option>
         <option value="Personal">Personal</option>

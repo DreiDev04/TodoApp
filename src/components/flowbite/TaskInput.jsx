@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import TaskCollectionContext from "../context/TaskCollectionContext";
 
-function TaskInput({ placeholder }) {
+function TaskInput({ placeholder, value }) {
   const { setTaskText } = useContext(
     TaskCollectionContext
   );
@@ -20,6 +20,7 @@ function TaskInput({ placeholder }) {
           text-lg rounded-lg block w-full p-2.5 border border-light-3 outline-b-light-2 focus:ring-light-3 focus:border-light-3 placeholder-light-1 placeholder:font-semibold placeholder:p-0 mb-2 focus:placeholder-transparent"
         placeholder={placeholder}
         required
+        value={value}
         onChange={handleChange}
       />
     </div>

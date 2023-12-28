@@ -8,15 +8,21 @@ import { useContext } from "react";
 import TaskCollectionContext from "../context/TaskCollectionContext"; 
 
 
-function DatetimePicker() {
+function DatetimePicker({value, edit}) {
+  let val;
+
+  if (edit) {
+    val = moment(value.toDate()).format("MM/DD/YYYY hh:mm A");
+    // console.log(val);
+  }
   const { setTaskDateAndTime } = useContext(TaskCollectionContext);
 
   const handleChange = (e) => {
     setTaskDateAndTime(e._d);
-    console.log(e);
-    console.log(e._d);
+    // console.log(e);
+    // console.log(e._d);
   }
-  const currentDateString = moment().format("MM/DD/YYYY HH:mm A");
+  const currentDateString = moment().format("MM/DD/YYYY hh:mm A");
   const yesterday = moment().subtract(1, "day");
 
   const valid = function (current) {
@@ -29,7 +35,9 @@ function DatetimePicker() {
         inputProps={{
           className:
             "bg-dark-2 rounded-lg border border-light-3 text-light-1 text-sm focus:ring-light-3 focus:border-light-3 p-1.5 pl-3  placeholder-light-1 ",
-            placeholder: currentDateString
+            // placeholder: "Select Date and Time",
+            placeholder: `${edit ? val : currentDateString}`
+            // value: value.toDate(),
         }}
         isValidDate={valid}
         renderInput={(props) => (

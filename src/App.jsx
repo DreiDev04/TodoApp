@@ -8,11 +8,11 @@ import MainContext from "./components/context/MainContext";
 import TaskContext from "./components/context/TaskContext";
 import CalendarEvent from "./components/CalendarEvent";
 import { TaskCollectionProvider } from "./components/context/TaskCollectionContext";
-import EditItem from "./EditItem";
+import EditItem from "./components/EditItem";
 
 function App() {
   const { isAddItem, isNavigation, isEditItem } = useContext(MainContext);
-  const { task } = useContext(TaskContext);
+  const { task, todoTask} = useContext(TaskContext);
 
   return (
     <div className="flex">
@@ -36,7 +36,7 @@ function App() {
         {!isAddItem && isEditItem && (
           <div className="w-1/2">
             <TaskCollectionProvider>
-              <AddItem />
+              <EditItem todoTask={todoTask}/>
             </TaskCollectionProvider>
           </div>
         )}

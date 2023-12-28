@@ -4,7 +4,7 @@ const MainContext = createContext();
 
 export function MainProvider({ children }) {
   const [isAddItem, setIsAddItem] = useState(false);
-  const [isEditItem, setIsEditItem] = useState(true);
+  const [isEditItem, setIsEditItem] = useState(false);
   const [isNavigation, setIsNavigation] = useState(true);
 
   return (
