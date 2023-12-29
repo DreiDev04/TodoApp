@@ -60,13 +60,13 @@ function IndividualTask({ todos }) {
           >
             <FontAwesomeIcon icon={faTrash} className="text-red-500" />
           </button>
-          <button
+          {/* <button
             className="ml-auto px-2 py-1 rounded-lg hover:bg-dark-4"
             type="button"
             onClick={handleEdit}
           >
             <FontAwesomeIcon icon={faChevronRight} className="text-light-1" />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
